@@ -13,7 +13,7 @@ class HomeController extends GetxController{
   HomeController({required this.taskRepository});
 
 
-  final tasks = [].obs;
+  List<Task> tasks = <Task>[].obs;
   final formKey = GlobalKey<FormState>();
   final editCtrl = TextEditingController();
   final choiceIndex = 0.obs;
@@ -22,7 +22,7 @@ class HomeController extends GetxController{
   void onInit() {
     super.onInit();
     tasks.assignAll(taskRepository.read());
-    ever(tasks, (callback) => taskRepository.write(tasks as List<Task>));
+    ever(tasks as RxInterface<Object?>, (callback) => taskRepository.write(tasks));
 
   }
 
