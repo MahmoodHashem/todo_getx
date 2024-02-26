@@ -78,14 +78,22 @@ class AddDialog extends StatelessWidget {
               ),
             ),
             
-            ...homeCtrl.tasks.map((e) => Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 5.0.responsiveWieght, vertical: 3.0.responsiveWieght),
-              child: Row(
-                children: [
-                  Icon(IconData(e.icon, fontFamily: 'MaterialIcons'), color: HexColor.fromHex(e.color)),
-                  SizedBox(width: 3.0.responsiveWieght,),
-                  Text(e.title),
-                ],
+            ...homeCtrl.tasks.map((e) => Obx( ()=> GestureDetector(
+                onTap: (){
+                  homeCtrl.changeSelectedTask(e);
+                },
+                child: Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 5.0.responsiveWieght, vertical: 3.0.responsiveWieght),
+                  child: Row(
+                    children: [
+                      Icon(IconData(e.icon, fontFamily: 'MaterialIcons'), color: HexColor.fromHex(e.color)),
+                      SizedBox(width: 3.0.responsiveWieght,),
+                      Text(e.title),
+                      if(homeCtrl.selectedTask.value == e) Icon(Icons.check)
+
+                    ],
+                  ),
+                ),
               ),
             ))
 
