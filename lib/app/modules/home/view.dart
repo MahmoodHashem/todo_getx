@@ -31,20 +31,35 @@ class HomePage extends GetView<HomeController> {
                 ),
                 ),
               ),
-
               Obx(()=> GridView.count(
                   shrinkWrap: true,
                     physics: const ClampingScrollPhysics(),
                     crossAxisCount: 2,
                   children: [
-                    ...controller.tasks.map((element) => TaskCard(task: element)).toList(),
+                    ...controller.tasks.map((element) => LongPressDraggable(
+                      onDragStarted: ()=> controller.changeDeleting(true),
+                      onDraggableCanceled: (_, offset)=> controller.changeDeleting(false),
+                      onDragEnd: (_)=> controller.changeDeleting(false),
+                      feedback: Opacity(
+                        opacity: 0.5, 
+                        child: TaskCard(task: element),
+                      ),
+                        child: TaskCard(task: element))).toList(),
                     AddCard()
                   ],
                 ),
               )
-
             ],
-      ))
+      ),
+      ),
+      floatingActionButton: Obx( ()=> FloatingActionButton(
+          backgroundColor: controller.deleting.value ? Colors.red: blue,
+          onPressed: (){
+
+          },
+        child: Icon(controller.deleting.value ? Icons.delete : Icons.add),
+        ),
+      ),
     );
   }
 }

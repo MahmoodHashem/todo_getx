@@ -16,6 +16,7 @@ class HomeController extends GetxController{
   List<Task> tasks = <Task>[].obs;
   final formKey = GlobalKey<FormState>();
   final editCtrl = TextEditingController();
+  final deleting = false.obs;
   final choiceIndex = 0.obs;
 
   @override
@@ -28,11 +29,16 @@ class HomeController extends GetxController{
 
   @override
   void onClose() {
+    editCtrl.dispose();
     super.onClose();
   }
 
   void changeIndexOfChoice(int value){
     choiceIndex.value = value;
+  }
+
+  void changeDeleting(bool value){
+    deleting.value = value;
   }
 
   bool addTask(Task task){
