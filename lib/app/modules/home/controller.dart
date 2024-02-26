@@ -49,4 +49,8 @@ class HomeController extends GetxController{
     return true;
   }
 
+  void deleteTask(Task task){
+    tasks.remove(task);
+  }
+
 }

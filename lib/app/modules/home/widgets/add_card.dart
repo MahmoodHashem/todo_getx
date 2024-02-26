@@ -35,6 +35,7 @@ class AddCard extends StatelessWidget {
                       padding:  EdgeInsets.symmetric(horizontal: 3.0.responsiveWieght),
                       child: TextFormField(
                         controller: homeCtrl.editCtrl,
+                        autofocus: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
