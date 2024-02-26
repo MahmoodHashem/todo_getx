@@ -10,6 +10,7 @@ import 'package:todo_getx/app/data/service/storage/service.dart';
 import 'package:todo_getx/app/modules/home/controller.dart';
 import 'package:todo_getx/app/core/utils/extensions.dart';
 import 'package:todo_getx/app/modules/home/widgets/add_card.dart';
+import 'package:todo_getx/app/modules/home/widgets/add_dialog.dart';
 import 'package:todo_getx/app/modules/home/widgets/task_card.dart';
 
 import '../../data/model/task.dart';
@@ -64,7 +65,7 @@ class HomePage extends GetView<HomeController> {
           return Obx( ()=> FloatingActionButton(
             backgroundColor: controller.deleting.value ? Colors.red: blue,
             onPressed: (){
-
+              Get.to(AddDialog(), transition: Transition.downToUp);
             },
             child: Icon(controller.deleting.value ? Icons.delete : Icons.add),
           ),);
