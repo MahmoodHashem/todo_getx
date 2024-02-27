@@ -25,7 +25,7 @@ class HomePage extends GetView<HomeController> {
           child: ListView(
             children: [
               Padding(
-                padding:  EdgeInsets.all(4.0.responsiveWieght),
+                padding:  EdgeInsets.all(4.0.responsiveWeight),
                 child: Text('My List',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -65,7 +65,12 @@ class HomePage extends GetView<HomeController> {
           return Obx( ()=> FloatingActionButton(
             backgroundColor: controller.deleting.value ? Colors.red: blue,
             onPressed: (){
-              Get.to(AddDialog(), transition: Transition.downToUp);
+              if(controller.tasks.isNotEmpty){
+                Get.to(AddDialog(), transition: Transition.downToUp);
+              }else{
+                EasyLoading.showInfo('Please Create at least one Type');
+              }
+
             },
             child: Icon(controller.deleting.value ? Icons.delete : Icons.add),
           ),);

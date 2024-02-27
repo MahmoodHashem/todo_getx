@@ -17,11 +17,11 @@ class TaskCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = HexColor.fromHex(task.color);
-    final squareWidth = Get.width - 12.0.responsiveWieght;
+    final squareWidth = Get.width - 12.0.responsiveWeight;
     return Container(
         width: squareWidth / 2 ,
       height: squareWidth / 2,
-      margin: EdgeInsets.all(3.0.responsiveWieght),
+      margin: EdgeInsets.all(3.0.responsiveWeight),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -50,11 +50,11 @@ class TaskCard extends StatelessWidget {
                 colors: [Colors.white, Colors.white]),
           ),
           Padding(
-            padding: EdgeInsets.all(6.0.responsiveWieght),
+            padding: EdgeInsets.all(6.0.responsiveWeight),
             child: Icon(IconData(task.icon, fontFamily: 'MaterialIcons'), color: color,),
           ), 
           Padding(
-            padding:  EdgeInsets.all(6.0.responsiveWieght),
+            padding:  EdgeInsets.all(6.0.responsiveWeight),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

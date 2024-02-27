@@ -16,15 +16,15 @@ class AddCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final icons = getIcons;
-    final squareWidth = Get.width - 12.0.responsiveWieght;
+    final squareWidth = Get.width - 12.0.responsiveWeight;
     return Container(
       height: squareWidth / 2,
       width: squareWidth / 2,
-      margin: EdgeInsets.all(3.0.responsiveWieght),
+      margin: EdgeInsets.all(3.0.responsiveWeight),
       child: InkWell(
         onTap: () async {
           await Get.defaultDialog(
-            titlePadding: EdgeInsets.symmetric(vertical: 5.0.responsiveWieght),
+            titlePadding: EdgeInsets.symmetric(vertical: 5.0.responsiveWeight),
             radius: 5,
             title: 'Task key',
             content: Form(
@@ -32,7 +32,7 @@ class AddCard extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 3.0.responsiveWieght),
+                      padding:  EdgeInsets.symmetric(horizontal: 3.0.responsiveWeight),
                       child: TextFormField(
                         controller: homeCtrl.editCtrl,
                         autofocus: true,
@@ -109,7 +109,7 @@ class AddCard extends StatelessWidget {
               child: Icon(
                 Icons.add,
                 color: Colors.grey,
-                size: 10.0.responsiveWieght,
+                size: 10.0.responsiveWeight,
               ),
             )),
       ),
