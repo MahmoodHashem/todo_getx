@@ -19,6 +19,8 @@ class HomeController extends GetxController{
   final deleting = false.obs;
   final choiceIndex = 0.obs;
   final selectedTask = Rx<Task?>(null);
+  final doingTodos = <dynamic>[].obs;
+  final doneTodos = <dynamic>[].obs;
 
   @override
   void onInit() {
@@ -40,6 +42,25 @@ class HomeController extends GetxController{
 
   void changeDeleting(bool value){
     deleting.value = value;
+  }
+
+  void changeTodosStatus(List<dynamic> selected){
+    doingTodos.clear();
+    doneTodos.clear();
+
+    for(int i = 0; i < selected.length; i++){
+      var todo = selected[i];
+      var status = todo['done'];
+
+      if(status == true){
+        doneTodos.add(todo);
+      }else{
+        doingTodos.add(todo);
+      }
+
+    }
+
+
   }
 
   bool addTask(Task task){
