@@ -14,18 +14,21 @@ extension ResponsiveText on double {
 extension HexColor on Color{
   static Color fromHex(String hexString){
     String cleanedHex = hexString.toUpperCase().replaceAll("#", "");
+
     if (cleanedHex.length == 6) {
-      cleanedHex = "FF" + cleanedHex; // Adding alpha value if it's not present
+      cleanedHex = "0xFF" + cleanedHex; // Adding alpha value if it's not present
     }
     return Color(int.parse(cleanedHex, radix: 16));
   }
 
-  String toHex({bool leadingHashSign = true}) =>
-      '${leadingHashSign ? '#' : ''}'
-      '${alpha.toRadixString(16).padLeft(2, '0')}'
-      '${red.toRadixString(16).padLeft(2, '0')}'
-      '${blue.toRadixString(16).padLeft(2, '0')}'
-      '${green.toRadixString(16).padLeft(2, '0')}';
+  String toHex() {
+    String hexAlpha = (this.alpha & 0xff).toRadixString(16).padLeft(2, '0');
+    String hexRed = (this.red & 0xff).toRadixString(16).padLeft(2, '0');
+    String hexGreen = (this.green & 0xff).toRadixString(16).padLeft(2, '0');
+    String hexBlue = (this.blue & 0xff).toRadixString(16).padLeft(2, '0');
+
+    return '#$hexAlpha$hexRed$hexGreen$hexBlue';
+  }
 
 }
 

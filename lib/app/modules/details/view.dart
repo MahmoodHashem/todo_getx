@@ -31,7 +31,7 @@ class DetailPage extends StatelessWidget {
                     },
                     icon: Icon(Icons.arrow_back), 
                 style: ButtonStyle(
-                  overlayColor: MaterialStatePropertyAll(Colors.transparent), 
+                  overlayColor: MaterialStatePropertyAll(Colors.transparent),
                 ),
                 ),
               ],

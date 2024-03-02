@@ -23,6 +23,8 @@ class AddCard extends StatelessWidget {
       margin: EdgeInsets.all(3.0.responsiveWeight),
       child: InkWell(
         onTap: () async {
+
+
           await Get.defaultDialog(
             titlePadding: EdgeInsets.symmetric(vertical: 5.0.responsiveWeight),
             radius: 5,

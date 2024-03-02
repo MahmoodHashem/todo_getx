@@ -72,7 +72,10 @@ class TaskCard extends StatelessWidget {
                   ),
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Text('${task.todos?.length ?? 0} tasks',
+                  SizedBox(
+                    height: 2.0.responsiveWeight,
+                  ),
+                  Text('${task.todos?.length ?? 0} Tasks',
                   overflow: TextOverflow.ellipsis,
                   )
                 ],
