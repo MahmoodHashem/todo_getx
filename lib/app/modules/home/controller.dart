@@ -1,7 +1,9 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:todo_getx/app/data/service/storage/repository.dart';
 
 import '../../data/model/task.dart';
@@ -99,6 +101,40 @@ class HomeController extends GetxController{
 
   bool containTodo(List todo, String title) {
     return todo.any((element) => element['title'] == title);
+  }
+
+  bool addTodo(String title) {
+
+    var todo = <String, dynamic>{'title':title, 'done': false};
+    print('before conditions');
+    if(doingTodos.any((element) => mapEquals(todo, element))){
+      print('doing condition');
+      return false;
+    }
+    var doneTodo = <String, dynamic>{'title': title, 'done': true};
+    if(doneTodos.any((element) => mapEquals(doneTodo, element))){
+      print('done condition');
+      return false;
+    }
+    print('after conditions');
+    doingTodos.add(todo);
+    return true;
+  }
+
+  void updateTodo(){
+
+    var newTodos = <Map<String, dynamic>>[];
+
+    newTodos.addAll([
+      ...doingTodos,
+      ...doneTodos]
+    );
+
+    var newTask = selectedTask.value!.copyWith(todos: newTodos);
+    int oldIndex = tasks.indexOf(selectedTask.value!);
+    tasks[oldIndex] = newTask;
+
+
   }
 
 }
