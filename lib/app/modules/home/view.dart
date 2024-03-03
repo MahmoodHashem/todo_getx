@@ -69,7 +69,7 @@ class HomePage extends GetView<HomeController> {
               if(controller.tasks.isNotEmpty){
                 Get.to(AddDialog(), transition: Transition.downToUp);
               }else{
-                EasyLoading.showInfo('Please Create at least one Type');
+                EasyLoading.showInfo('Please Create at least one Tas');
               }
 
             },
