@@ -45,7 +45,7 @@ class DoingList extends StatelessWidget {
                     fillColor: const MaterialStatePropertyAll(Colors.grey),
                       value: element['done'],
                       onChanged: (value){
-
+                        homeCtrl.doneTodo(element['title']);
                       }),
                 ),
                 Padding(
@@ -58,7 +58,11 @@ class DoingList extends StatelessWidget {
               ],
             ),
           )
-          ).toList()
+          ).toList(),
+          if(homeCtrl.doingTodos.isNotEmpty) Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 2.0.responsiveWeight),
+            child: const Divider(thickness: 2,),
+          )
         ],
       );
     }
