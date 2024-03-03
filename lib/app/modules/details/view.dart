@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:todo_getx/app/core/utils/extensions.dart';
 import 'package:todo_getx/app/modules/details/widgets/doing_list.dart';
+import 'package:todo_getx/app/modules/details/widgets/done_list.dart';
 
 import '../home/controller.dart';
 
@@ -137,6 +138,7 @@ class DetailPage extends StatelessWidget {
               ),
             ),
             DoingList(),
+            DoneList(),
           ],
         ),
       )
