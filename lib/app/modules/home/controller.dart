@@ -20,6 +20,7 @@ class HomeController extends GetxController{
   final editCtrl = TextEditingController();
   final deleting = false.obs;
   final choiceIndex = 0.obs;
+  final tabIndex = 0.obs;
   final selectedTask = Rx<Task?>(null);
   final doingTodos = <dynamic>[].obs;
   final doneTodos = <dynamic>[].obs;
@@ -36,6 +37,10 @@ class HomeController extends GetxController{
   void onClose() {
     editCtrl.dispose();
     super.onClose();
+  }
+
+  void changeTabIndex(int index){
+    tabIndex.value = index;
   }
 
   void changeIndexOfChoice(int value){
