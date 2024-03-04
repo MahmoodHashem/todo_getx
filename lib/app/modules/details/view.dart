@@ -104,6 +104,7 @@ class DetailPage extends StatelessWidget {
                 vertical: 5.0.responsiveHeight,
               ),
               child: TextFormField(
+                textInputAction: TextInputAction.done,
                 controller: homeCtrl.editCtrl,
                 autofocus: true,
                 decoration: InputDecoration(

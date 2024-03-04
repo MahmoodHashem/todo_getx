@@ -152,7 +152,23 @@ class HomeController extends GetxController{
     int index = doneTodos.indexWhere((element) => mapEquals(element, doneTodo));
 
     doneTodos.removeAt(index);
+  }
 
+
+  bool isTaskTodosEmpty(Task task){
+    return task.todos == null || task.todos!.isEmpty;
+  }
+
+
+  int getDoneTodos(Task task){
+    int result = 0;
+
+    for(int i = 0; i < task.todos!.length; i++){
+      if(task.todos![i]['done'] == true){
+        result += 1;
+      }
+    }
+    return result;
   }
 
 }
