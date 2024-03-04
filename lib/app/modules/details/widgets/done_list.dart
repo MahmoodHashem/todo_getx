@@ -46,11 +46,13 @@ class DoneList extends StatelessWidget {
                 child: Padding(
                   padding:  EdgeInsets.symmetric(
                     horizontal: 9.0.responsiveWeight,
-                    vertical: 3.0.responsiveWeight
+                    // vertical: 3.0.responsiveWeight
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.done, color: Colors.blue),
+                      IconButton(onPressed: (){
+                        homeCtrl.unDoneTodo(element['title']);
+                      }, icon: const Icon(Icons.check_box, color: Colors.blue)),
                       Padding(
                         padding: EdgeInsets.symmetric(
                           horizontal: 3.0.responsiveWeight,
