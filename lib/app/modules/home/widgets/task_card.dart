@@ -61,7 +61,7 @@ class TaskCard extends StatelessWidget {
               child: Icon(IconData(task.icon, fontFamily: 'MaterialIcons'), color: color,),
             ),
             Padding(
-              padding:  EdgeInsets.all(6.0.responsiveWeight),
+              padding:  EdgeInsets.only(left: 6.0.responsiveWeight),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -73,7 +73,7 @@ class TaskCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(
-                    height: 2.0.responsiveWeight,
+                    height: 3.0.responsiveWeight,
                   ),
                   Text('${task.todos?.length ?? 0} Tasks',
                   overflow: TextOverflow.ellipsis,

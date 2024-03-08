@@ -1,5 +1,5 @@
 
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -72,6 +72,7 @@ class HomePage extends GetView<HomeController> {
         },
         builder: (_, __, ___){
           return Obx( ()=> FloatingActionButton(
+            elevation: 6,
             backgroundColor: controller.deleting.value ? Colors.red: blue,
             onPressed: (){
               if(controller.tasks.isNotEmpty){
@@ -86,22 +87,24 @@ class HomePage extends GetView<HomeController> {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) => controller.changeTabIndex(index),
-          currentIndex: controller.tabIndex.value,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: [
-            BottomNavigationBarItem(
-              icon:Icon(Icons.apps),
-              label: 'Report'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.data_usage),
-              label: 'Data'
-            )
 
-          ]),
+      bottomNavigationBar: Obx(()=> BottomNavigationBar(
+          onTap: (index) => controller.changeTabIndex(index),
+            currentIndex: controller.tabIndex.value,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            items: [
+              BottomNavigationBarItem(
+                icon:Icon(Icons.apps),
+                label: 'Report'
+              ),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.data_usage),
+                label: 'Data'
+              )
+
+            ]),
+      ),
 
       );
   }

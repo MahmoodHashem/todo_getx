@@ -111,7 +111,7 @@ class AddCard extends StatelessWidget {
               child: Icon(
                 Icons.add,
                 color: Colors.grey,
-                size: 10.0.responsiveWeight,
+                size: 8.0.responsiveWeight,
               ),
             )),
       ),

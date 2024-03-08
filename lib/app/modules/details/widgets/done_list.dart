@@ -52,6 +52,7 @@ class DoneList extends StatelessWidget {
                     children: [
                       IconButton(onPressed: (){
                         homeCtrl.unDoneTodo(element['title']);
+                        homeCtrl.updateTodo();
                       }, icon: const Icon(Icons.check_box, color: Colors.blue)),
                       Padding(
                         padding: EdgeInsets.symmetric(

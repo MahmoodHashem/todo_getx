@@ -46,6 +46,7 @@ class DoingList extends StatelessWidget {
                       value: element['done'],
                       onChanged: (value){
                         homeCtrl.doneTodo(element['title']);
+                        homeCtrl.updateTodo();
                       }),
                 ),
                 Padding(
